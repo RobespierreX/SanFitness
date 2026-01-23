@@ -8,10 +8,8 @@ const LandingPage: React.FC = () => {
             <header className="sticky top-0 z-50 bg-white/80 dark:bg-[#102217]/80 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="text-[#2bee79]">
-                            <svg className="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
-                            </svg>
+                        <div className="size-10 rounded-full border border-slate-100 dark:border-white/10 shadow-sm overflow-hidden flex items-center justify-center bg-white">
+                            <img src="/logo.png" alt="SanFitness Logo" className="w-full h-full object-contain" />
                         </div>
                         <h2 className="text-xl font-bold tracking-tight">SanFitness</h2>
                     </div>
@@ -199,10 +197,8 @@ const LandingPage: React.FC = () => {
                     <div className="grid md:grid-cols-4 gap-12 mb-20">
                         <div className="flex flex-col gap-6 col-span-1 md:col-span-1">
                             <div className="flex items-center gap-3">
-                                <div className="text-[#2bee79]">
-                                    <svg className="size-6" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
-                                    </svg>
+                                <div className="size-8 rounded-full border border-white/10 shadow-sm overflow-hidden flex items-center justify-center bg-white">
+                                    <img src="/logo.png" alt="SanFitness Logo" className="w-full h-full object-contain" />
                                 </div>
                                 <h2 className="text-lg font-bold">SanFitness</h2>
                             </div>
