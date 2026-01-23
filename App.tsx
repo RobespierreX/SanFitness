@@ -16,6 +16,7 @@ import MobileNav from './components/MobileNav';
 import TrackOrder from './TrackOrder';
 import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
+import LandingPage from './LandingPage';
 
 const App: React.FC = () => {
   const hasCompletedOnboarding = localStorage.getItem('onboarding_complete') === 'true';
@@ -26,8 +27,10 @@ const App: React.FC = () => {
         <Router>
           <CartDrawer />
           <Routes>
+            <Route path="/" element={<LandingPage />} />
+
             {/* Redirect to onboarding if not complete */}
-            <Route path="/" element={hasCompletedOnboarding ? <Navigate to="/dashboard" /> : <Navigate to="/onboarding" />} />
+            <Route path="/start" element={hasCompletedOnboarding ? <Navigate to="/dashboard" /> : <Navigate to="/onboarding" />} />
 
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/login" element={<Login />} />
