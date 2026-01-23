@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { generatePersonalizedMeal } from './services/geminiService';
+import { useCart } from './context/CartContext';
 
 interface Meal {
   id: string;
@@ -173,8 +174,7 @@ const Nutrition: React.FC = () => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [generatedMeal, setGeneratedMeal] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const { addToCart: addItemToCart, cartTotal, itemCount } = useCart();
 
   const toggleIngredient = (ing: string) => {
     setSelectedIngredients(prev =>
@@ -195,11 +195,6 @@ const Nutrition: React.FC = () => {
     }
   };
 
-  const addToCart = (price: number) => {
-    setCartCount(prev => prev + 1);
-    setCartTotal(prev => prev + price);
-  };
-
   return (
     <div className="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark transition-colors overflow-hidden relative">
       <header className="sticky top-0 z-50 bg-white/90 dark:bg-[#111814]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#28392f] px-8 py-4 flex items-center justify-between">
@@ -209,11 +204,11 @@ const Nutrition: React.FC = () => {
         <div className="flex items-center gap-4">
           <div className="hidden md:flex flex-col items-end text-right">
             <span className="text-[10px] text-text-muted dark:text-text-secondary font-bold uppercase tracking-widest">Saldo</span>
-            <span className="text-sm font-bold text-primary">${cartTotal.toFixed(2)}</span>
+            <span className="text-sm font-bold text-primary">S/ {cartTotal.toFixed(2)}</span>
           </div>
-          <button className="flex items-center justify-center rounded-xl size-10 bg-slate-100 dark:bg-[#28392f] hover:bg-primary hover:text-background-dark text-text-main dark:text-white transition-all relative">
+          <button onClick={useCart().toggleCart} className="flex items-center justify-center rounded-xl size-10 bg-slate-100 dark:bg-[#28392f] hover:bg-primary hover:text-background-dark text-text-main dark:text-white transition-all relative">
             <span className="material-symbols-outlined">shopping_bag</span>
-            {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full size-4 flex items-center justify-center">{cartCount}</span>}
+            {itemCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full size-4 flex items-center justify-center">{itemCount}</span>}
           </button>
         </div>
       </header>
@@ -274,9 +269,9 @@ const Nutrition: React.FC = () => {
                           <span className="text-slate-400 dark:text-white/30">{meal.macros}</span>
                         </div>
                         <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
-                          <span className="text-lg font-black text-slate-900 dark:text-white">${meal.price.toFixed(2)}</span>
+                          <span className="text-lg font-black text-slate-900 dark:text-white">S/ {meal.price.toFixed(2)}</span>
                           <button
-                            onClick={() => addToCart(meal.price)}
+                            onClick={() => addItemToCart({ id: meal.id, title: meal.name, price: meal.price, image: meal.img })}
                             className="bg-primary hover:bg-primary-hover text-slate-900 text-sm font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
                           >
                             Pedir ahora
@@ -365,10 +360,10 @@ const Nutrition: React.FC = () => {
                           Guardar receta
                         </button>
                         <button
-                          onClick={() => addToCart(15.00)}
+                          onClick={() => addItemToCart({ id: 'custom-ingredients-' + Date.now(), title: 'Pack Ingredientes Personalizados', price: 15.00 })}
                           className="flex-1 py-3 bg-primary text-slate-900 font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
                         >
-                          Pedir ingredientes ($15.00)
+                          Pedir ingredientes (S/ 15.00)
                           <span className="material-symbols-outlined text-sm">shopping_cart</span>
                         </button>
                       </div>

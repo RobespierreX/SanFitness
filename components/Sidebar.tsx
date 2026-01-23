@@ -81,10 +81,10 @@ const Sidebar: React.FC = () => {
             <span className={`material-symbols-outlined transition-colors ${isActive('/community') ? 'text-primary-dark' : 'text-slate-400 dark:text-white/60'}`}>groups</span>
             <p className={`text-sm font-semibold transition-colors ${isActive('/community') ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-white/60 group-hover:text-slate-900 dark:group-hover:text-white'}`}>{t('sidebar.community')}</p>
           </Link>
-          <a href="#" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
-            <span className="material-symbols-outlined text-slate-400 dark:text-white/60 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">monitor_heart</span>
-            <p className="text-slate-500 dark:text-white/60 text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{t('sidebar.biometrics')}</p>
-          </a>
+          <Link to="/track-order" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${isActive('/track-order') ? 'bg-primary/10 border border-primary/20' : 'hover:bg-slate-50 dark:hover:bg-white/5 border border-transparent'}`}>
+            <span className={`material-symbols-outlined transition-colors ${isActive('/track-order') ? 'text-primary-dark' : 'text-slate-400 dark:text-white/60'}`}>local_shipping</span>
+            <p className={`text-sm font-semibold transition-colors ${isActive('/track-order') ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-white/60 group-hover:text-slate-900 dark:group-hover:text-white'}`}>{t('sidebar.trackOrder')}</p>
+          </Link>
         </nav>
       </div>
       <div className="flex flex-col gap-4">

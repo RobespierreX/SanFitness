@@ -78,12 +78,20 @@ const Profile: React.FC = () => {
 
             const fullName = `${formData.firstName} ${formData.lastName}`.trim();
 
+            const weight = parseFloat(formData.weight);
+            const height = parseFloat(formData.height);
+            const age = parseInt(formData.age);
+
+            if (isNaN(weight) || isNaN(height) || isNaN(age)) {
+                throw new Error("Por favor, ingresa valores numéricos válidos en Peso, Altura y Edad.");
+            }
+
             const updates = {
                 id: user.id,
                 full_name: fullName,
-                weight: parseFloat(formData.weight),
-                height: parseFloat(formData.height),
-                age: parseInt(formData.age),
+                weight,
+                height,
+                age,
                 updated_at: new Date(),
             };
 
