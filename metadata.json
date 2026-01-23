@@ -1,0 +1,7 @@
+{
+  "name": "SanFitness V3",
+  "description": "A high-performance metabolic and nutrition hub featuring AI-driven insights, meal analysis, and wellness location discovery.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

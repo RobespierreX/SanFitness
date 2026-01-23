@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SanFitness - Performance & Nutrition Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec6d",
+                        "primary-hover": "#0fd660",
+                        "primary-dark": "#0ea64d",
+                        "background-light": "#ffffff",
+                        "background-subtle": "#f8fafc",
+                        "background-dark": "#102218",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e22",
+                        "text-main": "#1e293b",
+                        "text-subtle": "#64748b",
+                        "border-light": "#e2e8f0",
+                        "text-muted": "#618972",
+                        "text-secondary": "#9db9a8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "card": "0 2px 10px rgba(0, 0, 0, 0.03)",
+                        "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
+                        "input": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark .glass-card {
+            background: rgba(26, 46, 34, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .radial-glow { filter: drop-shadow(0 0 8px rgba(19, 236, 109, 0.3)); }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-background-subtle dark:bg-background-dark text-text-main dark:text-white font-display overflow-x-hidden transition-colors duration-300">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
