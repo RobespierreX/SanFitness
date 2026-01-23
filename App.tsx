@@ -10,6 +10,8 @@ import Sidebar from './components/Sidebar';
 import ChatAssistant from './components/ChatAssistant';
 import Login from './Login';
 import { LanguageProvider } from './context/LanguageContext';
+import AuthGuard from './components/AuthGuard';
+import Profile from './Profile';
 
 const App: React.FC = () => {
   const hasCompletedOnboarding = localStorage.getItem('onboarding_complete') === 'true';
@@ -24,20 +26,23 @@ const App: React.FC = () => {
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="*" element={
-            <div className="flex h-screen w-full overflow-hidden bg-background-dark">
-              <Sidebar />
-              <main className="flex-1 flex flex-col h-full relative overflow-hidden">
-                <Routes>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/nutrition" element={<Nutrition />} />
-                  <Route path="/workouts" element={<Workouts />} />
-                  <Route path="/community" element={<Community />} />
-                  <Route path="*" element={<Navigate to="/dashboard" />} />
-                </Routes>
-                {/* <ChatAssistant /> */}
-              </main>
-            </div>
+          <Route path="/*" element={
+            <AuthGuard>
+              <div className="flex h-screen w-full overflow-hidden bg-background-dark">
+                <Sidebar />
+                <main className="flex-1 flex flex-col h-full relative overflow-hidden">
+                  <Routes>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/nutrition" element={<Nutrition />} />
+                    <Route path="/workouts" element={<Workouts />} />
+                    <Route path="/community" element={<Community />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="*" element={<Navigate to="/dashboard" />} />
+                  </Routes>
+                  {/* <ChatAssistant /> */}
+                </main>
+              </div>
+            </AuthGuard>
           } />
         </Routes>
       </Router>

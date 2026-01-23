@@ -56,10 +56,12 @@ const Sidebar: React.FC = () => {
     <aside className="hidden md:flex w-72 flex-col justify-between border-r border-border-light dark:border-white/5 bg-white dark:bg-background-dark p-6 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.05)] z-20 transition-all">
       <div className="flex flex-col gap-8">
         <div className="flex items-center gap-3 px-2">
-          <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-100 dark:border-white/10 shadow-sm" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNQKZtceM1pXLhalMeeo--A8T-GePtU4L1ew_BYguuY8qAmEz6Mbs8gO6FoeptV9uCXUPCVQTyArNatBVl6w4_gFA9dz6-kdbT5SE2TNPaB-daEklTj-GErrJQZLYlDia8jIeU_xxa1zwTlTU969z-UvjZtMCnVFJcDG5XWCEHWHy10ujWp_USWvkot45xRguWbTNIpI-IAsXCQMxcMvF4tvt0sxFTOaSnryTl00CXz2TDdrTbdYFukKyXmBWhnU4EPx1AGGhA7-j1")' }}></div>
+          <div className="size-10 rounded-full border border-slate-100 dark:border-white/10 shadow-sm overflow-hidden flex items-center justify-center bg-white">
+            <img src="/logo.png" alt="SanFitness Logo" className="w-full h-full object-contain" />
+          </div>
           <div className="flex flex-col">
             <h1 className="text-slate-900 dark:text-white text-lg font-bold leading-none tracking-tight">SanFitness</h1>
-            <p className="text-slate-500 dark:text-white/50 text-xs font-medium tracking-wide uppercase">METABOLIC HUB</p>
+            <p className="text-slate-500 dark:text-white/50 text-xs font-medium tracking-wide uppercase">{t('sidebar.subtitle')}</p>
           </div>
         </div>
         <nav className="flex flex-col gap-2">

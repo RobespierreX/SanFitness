@@ -41,9 +41,34 @@ const translations: Record<Language, Record<string, string>> = {
         'onboarding.terms_link': 'Términos de Servicio',
         'onboarding.privacy_link': 'Política de Privacidad',
         'onboarding.and': 'y',
+        'onboarding.alreadyHaveAccount': '¿Ya tienes una cuenta?',
+        'onboarding.login': 'Inicia Sesión',
+
+        // Dashboard
+        'dashboard.goodMorning': 'Buenos días',
+        'dashboard.goodAfternoon': 'Buenas tardes',
+        'dashboard.goodEvening': 'Buenas noches',
+        'dashboard.scoreTrend': 'Tu puntaje metabólico ha subido un 5% esta semana.',
+        'dashboard.viewAnalysis': 'Ver Análisis Completo',
 
         // Sidebar
+        'sidebar.subtitle': 'COME SANO, VIVE MEJOR',
         'sidebar.dashboard': 'Dashboard',
+
+        // Profile
+        'profile.title': 'Editar Perfil',
+        'profile.accountData': 'Datos de Cuenta',
+        'profile.physicalProfile': 'Perfil Físico',
+        'profile.firstName': 'Nombre',
+        'profile.lastName': 'Apellido',
+        'profile.email': 'Correo Electrónico',
+        'profile.weight': 'Peso (kg)',
+        'profile.height': 'Altura (cm)',
+        'profile.age': 'Edad',
+        'profile.save': 'Guardar Cambios',
+        'profile.saving': 'Guardando...',
+        'profile.success': 'Perfil actualizado correctamente',
+        'profile.error': 'Error al actualizar perfil',
         'sidebar.nutrition': 'Nutrición', // Was Nutrition
         'sidebar.workouts': 'Entrenamientos', // Was Workouts
         'sidebar.community': 'Comunidad', // Was Community
@@ -85,9 +110,34 @@ const translations: Record<Language, Record<string, string>> = {
         'onboarding.terms_link': 'Terms of Service',
         'onboarding.privacy_link': 'Privacy Policy',
         'onboarding.and': 'and',
+        'onboarding.alreadyHaveAccount': 'Already have an account?',
+        'onboarding.login': 'Log in',
+
+        // Dashboard
+        'dashboard.goodMorning': 'Good morning',
+        'dashboard.goodAfternoon': 'Good afternoon',
+        'dashboard.goodEvening': 'Good evening',
+        'dashboard.scoreTrend': 'Your metabolic score is trending up +5% this week.',
+        'dashboard.viewAnalysis': 'View Full Analysis',
 
         // Sidebar
+        'sidebar.subtitle': 'EAT HEALTHY, LIVE BETTER',
         'sidebar.dashboard': 'Dashboard',
+
+        // Profile
+        'profile.title': 'Edit Profile',
+        'profile.accountData': 'Account Data',
+        'profile.physicalProfile': 'Physical Profile',
+        'profile.firstName': 'First Name',
+        'profile.lastName': 'Last Name',
+        'profile.email': 'Email',
+        'profile.weight': 'Weight (kg)',
+        'profile.height': 'Height (cm)',
+        'profile.age': 'Age',
+        'profile.save': 'Save Changes',
+        'profile.saving': 'Saving...',
+        'profile.success': 'Profile updated successfully',
+        'profile.error': 'Error updating profile',
         'sidebar.nutrition': 'Nutrition',
         'sidebar.workouts': 'Workouts',
         'sidebar.community': 'Community',

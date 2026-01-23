@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from './services/supabaseClient';
 import { useLanguage } from './context/LanguageContext';
 
@@ -158,8 +158,8 @@ const Onboarding: React.FC = () => {
       <header className="sticky top-0 z-50 w-full bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-[#f0f4f2] dark:border-white/5 px-6 lg:px-10 py-4 transition-colors">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="size-8 text-primary flex items-center justify-center">
-              <span className="material-symbols-outlined filled text-3xl">ecg_heart</span>
+            <div className="size-10 flex items-center justify-center">
+              <img src="/logo.png" alt="SanFitness Logo" className="w-full h-full object-contain" />
             </div>
             <h2 className="text-text-main dark:text-white text-xl font-bold tracking-tight">SanFitness</h2>
           </div>
@@ -414,6 +414,12 @@ const Onboarding: React.FC = () => {
               <p className="text-center text-xs text-text-muted mt-4">
                 {t('onboarding.terms')} <a className="underline hover:text-primary transition-colors" href="#">{t('onboarding.terms_link')}</a> {t('onboarding.and')} <a className="underline hover:text-primary transition-colors" href="#">{t('onboarding.privacy_link')}</a>.
               </p>
+
+              <div className="mt-8 pt-6 border-t border-border-light dark:border-white/10 text-center">
+                <p className="text-sm text-text-muted">
+                  {t('onboarding.alreadyHaveAccount')} <Link to="/login" className="font-bold text-primary hover:text-primary-hover hover:underline transition-colors">{t('onboarding.login')}</Link>
+                </p>
+              </div>
             </div>
           </form>
         </div>

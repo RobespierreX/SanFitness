@@ -58,8 +58,8 @@ const Login: React.FC = () => {
             <header className="sticky top-0 z-50 w-full bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-[#f0f4f2] dark:border-white/5 px-6 lg:px-10 py-4 transition-colors">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="size-8 text-primary flex items-center justify-center">
-                            <span className="material-symbols-outlined filled text-3xl">ecg_heart</span>
+                        <div className="size-10 flex items-center justify-center">
+                            <img src="/logo.png" alt="SanFitness Logo" className="w-full h-full object-contain" />
                         </div>
                         <h2 className="text-text-main dark:text-white text-xl font-bold tracking-tight">SanFitness</h2>
                     </div>
@@ -138,7 +138,11 @@ const Login: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={() => {
-                                    setIsSignUp(!isSignUp);
+                                    if (isSignUp) {
+                                        setIsSignUp(false);
+                                    } else {
+                                        navigate('/onboarding');
+                                    }
                                     setError(null);
                                 }}
                                 className="ml-1 text-primary hover:underline font-semibold bg-transparent border-none cursor-pointer"

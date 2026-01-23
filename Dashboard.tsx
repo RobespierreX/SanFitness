@@ -3,11 +3,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { supabase } from './services/supabaseClient';
 import { Link } from 'react-router-dom';
 import WellnessFinder from './components/WellnessFinder';
+import { useLanguage } from './context/LanguageContext';
 
 const Dashboard: React.FC = () => {
+  const { t } = useLanguage();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [userName, setUserName] = useState<string>('User');
-  const [greeting, setGreeting] = useState<string>('Hello');
+  const [greetingKey, setGreetingKey] = useState<string>('dashboard.goodMorning');
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -35,9 +37,9 @@ const Dashboard: React.FC = () => {
 
     // Set greeting based on time of day
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting('Good morning');
-    else if (hour < 18) setGreeting('Good afternoon');
-    else setGreeting('Good evening');
+    if (hour < 12) setGreetingKey('dashboard.goodMorning');
+    else if (hour < 18) setGreetingKey('dashboard.goodAfternoon');
+    else setGreetingKey('dashboard.goodEvening');
 
   }, []);
 
@@ -55,10 +57,10 @@ const Dashboard: React.FC = () => {
     <div className="flex-1 flex flex-col h-full relative overflow-hidden bg-background-subtle dark:bg-background-dark transition-colors">
       <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 p-8 pb-4 z-10 bg-white/50 dark:bg-surface-dark/50 backdrop-blur-sm border-b border-border-light/50 dark:border-white/5 sticky top-0 transition-all">
         <div className="flex flex-col gap-1">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">{greeting}, {userName}</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">{t(greetingKey)}, {userName}</h2>
           <div className="flex items-center gap-2 text-slate-500 dark:text-white/60">
             <span className="material-symbols-outlined text-primary-dark text-lg">trending_up</span>
-            <span className="text-sm font-medium">Your metabolic score is trending up +5% this week.</span>
+            <span className="text-sm font-medium">{t('dashboard.scoreTrend')}</span>
           </div>
         </div>
 
@@ -158,7 +160,7 @@ const Dashboard: React.FC = () => {
                   </div>
                 </div>
                 <button className="w-full lg:w-auto px-6 py-3 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-900 dark:text-white transition-all flex items-center justify-center gap-2 group whitespace-nowrap">
-                  View Full Analysis
+                  {t('dashboard.viewAnalysis')}
                   <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
                 </button>
               </div>
