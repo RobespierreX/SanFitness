@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from './services/supabaseClient';
+import { useLanguage } from './context/LanguageContext';
 
 const Onboarding: React.FC = () => {
+  const { t, language, setLanguage } = useLanguage();
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
@@ -161,9 +163,12 @@ const Onboarding: React.FC = () => {
             </div>
             <h2 className="text-text-main dark:text-white text-xl font-bold tracking-tight">SanFitness</h2>
           </div>
-          <button className="group flex items-center gap-2 rounded-full bg-[#f0f4f2] dark:bg-white/10 px-4 py-2 text-sm font-bold text-text-main dark:text-white hover:bg-[#e2e8e5] dark:hover:bg-white/20 transition-all">
+          <button
+            onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+            className="group flex items-center gap-2 rounded-full bg-[#f0f4f2] dark:bg-white/10 px-4 py-2 text-sm font-bold text-text-main dark:text-white hover:bg-[#e2e8e5] dark:hover:bg-white/20 transition-all"
+          >
             <span className="material-symbols-outlined text-[18px]">language</span>
-            <span>Español | Inglés</span>
+            <span>{language === 'es' ? 'Español' : 'English'}</span>
           </button>
         </div>
       </header>
@@ -176,8 +181,8 @@ const Onboarding: React.FC = () => {
           <div className="flex flex-col gap-6 animate-fade-in-up">
             <div className="flex flex-col gap-2">
               <div className="flex justify-between items-end">
-                <span className="text-sm font-semibold text-text-main dark:text-white uppercase tracking-wider">Paso {step} de 2</span>
-                <span className="text-xs font-medium text-text-muted">{step === 1 ? '50%' : '100%'} Completado</span>
+                <span className="text-sm font-semibold text-text-main dark:text-white uppercase tracking-wider">{t('onboarding.step')} {step} {t('onboarding.of')} 2</span>
+                <span className="text-xs font-medium text-text-muted">{step === 1 ? '50%' : '100%'} {t('onboarding.completed')}</span>
               </div>
               <div className="h-1.5 w-full rounded-full bg-[#dbe6e0] dark:bg-white/10 overflow-hidden">
                 <div
@@ -189,15 +194,15 @@ const Onboarding: React.FC = () => {
             <div className="flex flex-col gap-3">
               <h1 className="text-3xl lg:text-4xl font-black leading-tight tracking-tight text-text-main dark:text-white">
                 {step === 1 ? (
-                  <>Empezar ahora tu cambio <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">físico y mental</span></>
+                  <>{t('onboarding.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">{t('onboarding.title1_highlight')}</span></>
                 ) : (
-                  <>Finaliza tu <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">configuración personal</span></>
+                  <>{t('onboarding.title2')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">{t('onboarding.title2_highlight')}</span></>
                 )}
               </h1>
               <p className="text-lg text-text-muted dark:text-gray-400 font-normal leading-relaxed">
                 {step === 1
-                  ? "Cuéntanos sobre ti para personalizar tu plan de nutrición y rendimiento."
-                  : "Ya casi terminamos. Danos algunos detalles finales para crear tu perfil."
+                  ? t('onboarding.desc1')
+                  : t('onboarding.desc2')
                 }
               </p>
             </div>
@@ -209,7 +214,7 @@ const Onboarding: React.FC = () => {
               <section className="flex flex-col gap-6 p-6 lg:p-8 rounded-xl bg-surface-light dark:bg-surface-dark shadow-card border border-transparent dark:border-white/5 transition-all">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="material-symbols-outlined text-primary">person_check</span>
-                  <h2 className="text-xl font-bold text-text-main dark:text-white">Datos Biométricos</h2>
+                  <h2 className="text-xl font-bold text-text-main dark:text-white">{t('onboarding.biometrics')}</h2>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -224,7 +229,7 @@ const Onboarding: React.FC = () => {
                     />
                     <div className={`flex flex-col items-center justify-center gap-3 p-6 rounded-lg border-2 transition-all duration-200 peer-checked:border-primary peer-checked:bg-primary/5 hover:border-primary/50 hover:shadow-md bg-white dark:bg-white/5 ${errors.sex && !formData.sex ? 'border-red-500/50' : 'border-[#e5e7eb] dark:border-white/10'}`}>
                       <span className={`material-symbols-outlined text-4xl transition-colors ${formData.sex === 'male' ? 'text-primary' : 'text-gray-400'}`}>male</span>
-                      <span className={`font-medium transition-colors ${formData.sex === 'male' ? 'text-primary' : 'text-text-main dark:text-white'}`}>Hombre</span>
+                      <span className={`font-medium transition-colors ${formData.sex === 'male' ? 'text-primary' : 'text-text-main dark:text-white'}`}>{t('onboarding.male')}</span>
                     </div>
                     <div className="absolute top-3 right-3 opacity-0 peer-checked:opacity-100 transition-opacity text-primary">
                       <span className="material-symbols-outlined filled text-xl">check_circle</span>
@@ -241,7 +246,7 @@ const Onboarding: React.FC = () => {
                     />
                     <div className={`flex flex-col items-center justify-center gap-3 p-6 rounded-lg border-2 transition-all duration-200 peer-checked:border-primary peer-checked:bg-primary/5 hover:border-primary/50 hover:shadow-md bg-white dark:bg-white/5 ${errors.sex && !formData.sex ? 'border-red-500/50' : 'border-[#e5e7eb] dark:border-white/10'}`}>
                       <span className={`material-symbols-outlined text-4xl transition-colors ${formData.sex === 'female' ? 'text-primary' : 'text-gray-400'}`}>female</span>
-                      <span className={`font-medium transition-colors ${formData.sex === 'female' ? 'text-primary' : 'text-text-main dark:text-white'}`}>Mujer</span>
+                      <span className={`font-medium transition-colors ${formData.sex === 'female' ? 'text-primary' : 'text-text-main dark:text-white'}`}>{t('onboarding.female')}</span>
                     </div>
                     <div className="absolute top-3 right-3 opacity-0 peer-checked:opacity-100 transition-opacity text-primary">
                       <span className="material-symbols-outlined filled text-xl">check_circle</span>
@@ -251,7 +256,7 @@ const Onboarding: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="age">Edad</label>
+                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="age">{t('onboarding.age')}</label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                         <span className="material-symbols-outlined text-[20px]">cake</span>
@@ -267,7 +272,7 @@ const Onboarding: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="weight">Peso (kg)</label>
+                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="weight">{t('onboarding.weight')}</label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                         <span className="material-symbols-outlined text-[20px]">monitor_weight</span>
@@ -283,7 +288,7 @@ const Onboarding: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="height">Altura (cm)</label>
+                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="height">{t('onboarding.height')}</label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                         <span className="material-symbols-outlined text-[20px]">height</span>
@@ -305,11 +310,11 @@ const Onboarding: React.FC = () => {
               <section className="flex flex-col gap-6 p-6 lg:p-8 rounded-xl bg-surface-light dark:bg-surface-dark shadow-card border border-transparent dark:border-white/5 transition-all">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="material-symbols-outlined text-primary">badge</span>
-                  <h2 className="text-xl font-bold text-text-main dark:text-white">Identidad y Ubicación</h2>
+                  <h2 className="text-xl font-bold text-text-main dark:text-white">{t('onboarding.identity')}</h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="firstName">Nombre</label>
+                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="firstName">{t('onboarding.firstName')}</label>
                     <input
                       id="firstName"
                       type="text"
@@ -320,7 +325,7 @@ const Onboarding: React.FC = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="lastName">Apellido</label>
+                    <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="lastName">{t('onboarding.lastName')}</label>
                     <input
                       id="lastName"
                       type="text"
@@ -332,7 +337,7 @@ const Onboarding: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="district">Distrito</label>
+                  <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="district">{t('onboarding.district')}</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
                       <span className="material-symbols-outlined text-[20px]">location_on</span>
@@ -343,7 +348,7 @@ const Onboarding: React.FC = () => {
                       onChange={(e) => handleInputChange('district', e.target.value)}
                       className={`w-full pl-10 pr-10 py-3 rounded-lg border bg-white dark:bg-black/20 text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow shadow-input appearance-none cursor-pointer ${errors.district ? 'border-red-500/50' : 'border-gray-200 dark:border-gray-700'}`}
                     >
-                      <option value="" disabled>Selecciona tu distrito</option>
+                      <option value="" disabled>{t('onboarding.selectDistrict')}</option>
                       {districts.map(d => <option key={d.value} value={d.value} className="dark:bg-surface-dark">{d.label}</option>)}
                     </select>
                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
@@ -352,7 +357,7 @@ const Onboarding: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="email">Correo Electrónico</label>
+                  <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="email">{t('onboarding.email')}</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                       <span className="material-symbols-outlined text-[20px]">mail</span>
@@ -368,7 +373,7 @@ const Onboarding: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="password">Contraseña</label>
+                  <label className="text-sm font-semibold text-text-main dark:text-gray-300" htmlFor="password">{t('onboarding.password')}</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                       <span className="material-symbols-outlined text-[20px]">lock</span>
@@ -393,7 +398,7 @@ const Onboarding: React.FC = () => {
                 type="button"
                 onClick={step === 1 ? handleNext : handleSubmit}
               >
-                <span>{step === 1 ? 'Siguiente' : 'Empezar ahora'}</span>
+                <span>{step === 1 ? t('onboarding.next') : t('onboarding.start')}</span>
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
 
@@ -402,12 +407,12 @@ const Onboarding: React.FC = () => {
                   onClick={() => setStep(1)}
                   className="w-full mt-4 text-sm text-text-muted hover:text-text-main dark:hover:text-white transition-colors"
                 >
-                  Volver al paso anterior
+                  {t('onboarding.back')}
                 </button>
               )}
 
               <p className="text-center text-xs text-text-muted mt-4">
-                Al continuar, aceptas nuestros <a className="underline hover:text-primary transition-colors" href="#">Términos de Servicio</a> y <a className="underline hover:text-primary transition-colors" href="#">Política de Privacidad</a>.
+                {t('onboarding.terms')} <a className="underline hover:text-primary transition-colors" href="#">{t('onboarding.terms_link')}</a> {t('onboarding.and')} <a className="underline hover:text-primary transition-colors" href="#">{t('onboarding.privacy_link')}</a>.
               </p>
             </div>
           </form>

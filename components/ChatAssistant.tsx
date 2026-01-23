@@ -30,14 +30,21 @@ const ChatAssistant: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const history = messages.map(m => ({
-        role: m.role,
-        parts: [{ text: m.content }]
-      }));
-      const response = await chatWithGemini(history, userMsg);
+      // Filter out the initial welcome message from the API history
+      // The API expects the history to start with 'user'
+      const apiHistory = messages
+        .filter((msg, index) => !(index === 0 && msg.role === 'model'))
+        .map(m => ({
+          role: m.role,
+          parts: [{ text: m.content }]
+        }));
+
+      const response = await chatWithGemini(apiHistory, userMsg);
       setMessages(prev => [...prev, { role: 'model', content: response }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I encountered an error. Please try again." }]);
+    } catch (error: any) {
+      console.error("Chat Error Details:", error);
+      const errorMessage = error.message || JSON.stringify(error) || "Unknown error";
+      setMessages(prev => [...prev, { role: 'model', content: `Error: ${errorMessage}` }]);
     } finally {
       setIsLoading(false);
     }
@@ -84,11 +91,10 @@ const ChatAssistant: React.FC = () => {
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-3 rounded-xl text-sm ${
-                  msg.role === 'user' 
-                    ? 'bg-primary text-background-dark font-medium' 
-                    : 'bg-white/5 text-white/90 border border-white/5'
-                }`}>
+                <div className={`max-w-[85%] p-3 rounded-xl text-sm ${msg.role === 'user'
+                  ? 'bg-primary text-background-dark font-medium'
+                  : 'bg-white/5 text-white/90 border border-white/5'
+                  }`}>
                   {msg.content}
                 </div>
               </div>
@@ -107,29 +113,29 @@ const ChatAssistant: React.FC = () => {
 
           <div className="p-4 bg-surface-dark border-t border-white/5">
             <div className="flex items-center gap-2 bg-background-dark/50 rounded-xl p-2 border border-white/5">
-              <button 
+              <button
                 onClick={() => fileInputRef.current?.click()}
                 className="text-white/40 hover:text-primary transition-colors p-1"
                 title="Analyze meal/label photo"
               >
                 <span className="material-symbols-outlined">add_a_photo</span>
               </button>
-              <input 
-                type="file" 
-                className="hidden" 
-                ref={fileInputRef} 
-                accept="image/*" 
-                onChange={handleFileUpload} 
+              <input
+                type="file"
+                className="hidden"
+                ref={fileInputRef}
+                accept="image/*"
+                onChange={handleFileUpload}
               />
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask anything..." 
+                placeholder="Ask anything..."
                 className="flex-1 bg-transparent border-none focus:ring-0 text-white text-sm"
               />
-              <button 
+              <button
                 onClick={handleSend}
                 disabled={!inputValue.trim()}
                 className="text-primary disabled:text-white/20 transition-colors p-1"
@@ -140,8 +146,8 @@ const ChatAssistant: React.FC = () => {
           </div>
         </div>
       )}
-      
-      <button 
+
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="size-14 rounded-full bg-primary text-background-dark shadow-lg shadow-primary/20 flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group"
       >
