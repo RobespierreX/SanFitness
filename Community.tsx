@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from './services/supabaseClient';
 import CreatePost from './components/CreatePost';
 import UserAvatar from './components/UserAvatar';
+import { BotService } from './services/BotService';
 
 interface Post {
   id: string;
@@ -32,6 +33,7 @@ const Community: React.FC = () => {
   const [currentUserAvatar, setCurrentUserAvatar] = useState<string>('');
   const [currentUserName, setCurrentUserName] = useState<string>('');
   const [currentUserId, setCurrentUserId] = useState<string>('');
+  const [isModerator, setIsModerator] = useState<boolean>(false);
 
   // State for comments
   const [activeCommentPostId, setActiveCommentPostId] = useState<string | null>(null);
@@ -46,12 +48,13 @@ const Community: React.FC = () => {
       // Try to get avatar from metadata or profile table if needed
       const { data: profile } = await supabase
         .from('profiles')
-        .select('avatar_url, full_name')
+        .select('avatar_url, full_name, is_moderator')
         .eq('id', user.id)
         .single();
 
       setCurrentUserAvatar(profile?.avatar_url || user.user_metadata.avatar_url || '');
       setCurrentUserName(profile?.full_name || user.user_metadata.full_name || user.email || 'Usuario');
+      setIsModerator(profile?.is_moderator || false);
     }
   };
 
@@ -288,8 +291,18 @@ const Community: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
     fetchUser();
+
+    // Initial fetch
+    fetchPosts();
+
+    // Check and create daily bot post (in background)
+    BotService.checkAndCreateDailyPost().then((created) => {
+      if (created) {
+        console.log('🤖 Nuevo post del bot creado, refrescando feed...');
+        fetchPosts(); // Refresh if new post was added
+      }
+    });
   }, []);
 
   return (
@@ -319,11 +332,14 @@ const Community: React.FC = () => {
                         <p className="text-xs text-slate-500 dark:text-white/40">{new Date(post.created_at).toLocaleDateString()} • {new Date(post.created_at).toLocaleTimeString()}</p>
                       </div>
                     </div>
-                    {currentUserId === post.user_id && (
+                    {(currentUserId === post.user_id || isModerator) && (
                       <button
                         onClick={() => handleDeletePost(post.id)}
-                        className="text-slate-400 hover:text-red-500 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                        title="Eliminar publicación"
+                        className={`text-slate-400 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 transition-colors ${isModerator && currentUserId !== post.user_id
+                          ? 'hover:text-red-600 bg-red-50 dark:bg-red-900/10 text-red-400'
+                          : 'hover:text-red-500'
+                          }`}
+                        title={isModerator ? "Eliminar publicación (Moderador)" : "Eliminar publicación"}
                       >
                         <span className="material-symbols-outlined text-lg">delete</span>
                       </button>
@@ -337,7 +353,14 @@ const Community: React.FC = () => {
                   </div>
 
                   {post.image_url && (
-                    <div className="w-full aspect-[16/9] bg-slate-100 dark:bg-black/20 bg-cover bg-center" style={{ backgroundImage: `url("${post.image_url}")` }}></div>
+                    <div className="w-full bg-slate-100 dark:bg-black/20 border-y border-border-light dark:border-white/5">
+                      <img
+                        src={post.image_url}
+                        alt="Post image"
+                        className="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                   )}
 
                   <div className="px-4 py-3 border-t border-border-light dark:border-white/5">
@@ -382,10 +405,15 @@ const Community: React.FC = () => {
                                       </div>
                                       <p className="text-slate-700 dark:text-white/80 mt-1">{comment.content}</p>
                                     </div>
-                                    {currentUserId === comment.user_id && (
+                                    {/* Delete Comment Button */}
+                                    {(currentUserId === comment.user_id || isModerator) && (
                                       <button
                                         onClick={() => handleDeleteComment(comment.id, post.id)}
-                                        className="self-center text-slate-400 hover:text-red-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                        className={`self-center p-1 opacity-0 group-hover:opacity-100 transition-opacity ${isModerator && currentUserId !== comment.user_id
+                                          ? 'text-red-400 hover:text-red-600'
+                                          : 'text-slate-400 hover:text-red-500'
+                                          }`}
+                                        title={isModerator ? "Borrar comentario (Moderador)" : "Borrar comentario"}
                                       >
                                         <span className="material-symbols-outlined text-base">delete</span>
                                       </button>
