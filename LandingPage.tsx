@@ -156,10 +156,10 @@ const LandingPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hover-group">
                         {[
-                            { name: 'Pollo Teriyaki Keto', tag: 'Bajo en Carbos', img: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800' },
-                            { name: 'Bowl de Salmón Pacífico', tag: 'Omega-3', img: 'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=800' },
-                            { name: 'Avena Energética Fresca', tag: 'Desayuno', img: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800' },
-                            { name: 'Filete Mignon Fit', tag: 'Alto en Proteína', img: 'https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=800' },
+                            { name: 'Pollo Teriyaki Keto', tag: 'Bajo en Carbos', img: 'https://i.redd.it/sp99tgfxkmq81.jpg' },
+                            { name: 'Bowl de Salmón Pacífico', tag: 'Omega-3', img: 'https://img.freepik.com/foto-gratis/plato-poke-arroz-salmon-pepino-semillas-sesamo_9975-124446.jpg?semt=ais_incoming&w=740&q=80' },
+                            { name: 'Avena Energética Fresca', tag: 'Desayuno', img: 'https://www.wisdomlib.org/uploads/recipes/power-oatmeal-22882.jpg' },
+                            { name: 'Filete Mignon Fit', tag: 'Alto en Proteína', img: 'https://www.miguelvergara.com/actualidad/wp-content/uploads/2024/07/filet-mignon-1200x860.jpg' },
                         ].map((dish, i) => (
                             <Link to="/login" key={i} className="group cursor-pointer">
                                 <div className="relative rounded-2xl overflow-hidden aspect-square mb-4 shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-white/10">
@@ -191,10 +191,10 @@ const LandingPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hover-group">
                         {[
-                            { name: 'Mix Almendras & Nueces', tag: 'Grasas Saludables', img: 'https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?auto=compress&cs=tinysrgb&w=800' },
-                            { name: 'Barrita Cacao 70% Proteica', tag: 'Nootrópico', img: 'https://images.pexels.com/photos/7642000/pexels-photo-7642000.jpeg?auto=compress&cs=tinysrgb&w=800' },
-                            { name: 'Smoothie Verde Antioxidante', tag: 'Recovery', img: 'https://images.pexels.com/photos/1346215/pexels-photo-1346215.jpeg?auto=compress&cs=tinysrgb&w=800' },
-                            { name: 'Energy Bites Dátiles', tag: 'Energía Rápida', img: 'https://images.pexels.com/photos/693794/pexels-photo-693794.jpeg?auto=compress&cs=tinysrgb&w=800' },
+                            { name: 'Mix Almendras & Nueces', tag: 'Grasas Saludables', img: 'https://http2.mlstatic.com/D_Q_NP_890877-MLA51079034317_082022-O.webp' },
+                            { name: 'Barras Protéicas', tag: 'Nootrópico', img: 'https://tiaclara.com/wp-content/uploads/2013/10/how-to-make-fruit-bars-recipe-DSC3040.jpg' },
+                            { name: 'Smoothie Verde Antioxidante', tag: 'Recovery', img: 'https://as1.ftcdn.net/jpg/01/01/05/52/1000_F_101055283_fI0OHnH9roBgYtiHsN0rxkpHCmnToCSK.jpg' },
+                            { name: 'Bolitas Energéticas de Almendra', tag: 'Energía Rápida', img: 'https://www.piloncilloyvainilla.com/wp-content/uploads/2015/06/almond-power-balls-2-2-2-500x500.jpg' },
                         ].map((snack, i) => (
                             <Link to="/login" key={i} className="group cursor-pointer">
                                 <div className="relative rounded-2xl overflow-hidden aspect-square mb-4 shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-white/10">
