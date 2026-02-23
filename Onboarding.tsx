@@ -264,8 +264,12 @@ const Onboarding: React.FC = () => {
                       <input
                         id="age"
                         type="number"
+                        min="0"
                         placeholder="25"
                         value={formData.age}
+                        onKeyDown={(e) => {
+                          if (e.key === '-' || e.key === 'e' || e.key === 'E' || e.key === '+') e.preventDefault();
+                        }}
                         onChange={(e) => handleInputChange('age', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 rounded-lg border bg-white dark:bg-black/20 text-text-main dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow shadow-input font-medium ${errors.age ? 'border-red-500/50' : 'border-gray-200 dark:border-gray-700'}`}
                       />
@@ -280,8 +284,12 @@ const Onboarding: React.FC = () => {
                       <input
                         id="weight"
                         type="number"
+                        min="0"
                         placeholder="70"
                         value={formData.weight}
+                        onKeyDown={(e) => {
+                          if (e.key === '-' || e.key === 'e' || e.key === 'E' || e.key === '+') e.preventDefault();
+                        }}
                         onChange={(e) => handleInputChange('weight', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 rounded-lg border bg-white dark:bg-black/20 text-text-main dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow shadow-input font-medium ${errors.weight ? 'border-red-500/50' : 'border-gray-200 dark:border-gray-700'}`}
                       />
@@ -296,8 +304,12 @@ const Onboarding: React.FC = () => {
                       <input
                         id="height"
                         type="number"
+                        min="0"
                         placeholder="175"
                         value={formData.height}
+                        onKeyDown={(e) => {
+                          if (e.key === '-' || e.key === 'e' || e.key === 'E' || e.key === '+') e.preventDefault();
+                        }}
                         onChange={(e) => handleInputChange('height', e.target.value)}
                         className={`w-full pl-10 pr-4 py-3 rounded-lg border bg-white dark:bg-black/20 text-text-main dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow shadow-input font-medium ${errors.height ? 'border-red-500/50' : 'border-gray-200 dark:border-gray-700'}`}
                       />

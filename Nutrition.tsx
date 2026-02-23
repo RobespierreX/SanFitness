@@ -17,12 +17,12 @@ interface Meal {
 const expressMeals: Meal[] = [
   {
     id: 'e1',
-    name: "Salmón con Quinoa",
+    name: "Salmón con Quinua",
     desc: "Salmón salvaje a la plancha con base de quinoa real y espárragos trigueros.",
     cal: 450,
     macros: "P: 35g | C: 30g | F: 18g",
     price: 18.50,
-    img: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800",
+    img: "https://img.taste.com.au/HYk8GSjR/taste/2017/05/quinoa-salad-with-salmon-miso-dressing-1980x1320-126635-1.jpg",
     tag: "High Protein"
   },
   {
@@ -32,7 +32,7 @@ const expressMeals: Meal[] = [
     cal: 520,
     macros: "P: 42g | C: 45g | F: 12g",
     price: 14.90,
-    img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    img: "https://storage.googleapis.com/avena-recipes-v2/2024/06/1718480395429.jpeg",
     tag: "Clean Bulk"
   },
   {
@@ -52,12 +52,12 @@ const expressMeals: Meal[] = [
     cal: 410,
     macros: "P: 28g | C: 48g | F: 10g",
     price: 9.50,
-    img: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800",
+    img: "https://d2jbk7d41q2u2w.cloudfront.net/uploads/recipe/image/654/medium_thumb_fd1b37dd99e6a9d06c8af0d97948ae80-1558498380.jpg",
     tag: "Recovery"
   },
   {
     id: 'e5',
-    name: "Albóndigas de Pavo con Zoodles",
+    name: "Albóndigas de Pavo",
     desc: "Albóndigas de pavo caseras servidas sobre 'fideos' de calabacín con salsa marinara.",
     cal: 380,
     macros: "P: 30g | C: 10g | F: 15g",
@@ -72,7 +72,7 @@ const expressMeals: Meal[] = [
     cal: 320,
     macros: "P: 20g | C: 25g | F: 18g",
     price: 11.90,
-    img: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800",
+    img: "https://7diasdesabor.com/wp-content/uploads/2023/03/salteado-de-vegetales-y-tofu-web.jpg",
     tag: "Vegan"
   },
   {
@@ -82,7 +82,7 @@ const expressMeals: Meal[] = [
     cal: 450,
     macros: "P: 32g | C: 35g | F: 22g",
     price: 10.50,
-    img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&q=80&w=800",
+    img: "https://aki-225de.kxcdn.com/wp-content/uploads/2024/01/wrap-de-pollo.png",
     tag: "Balanced"
   },
   {
@@ -102,7 +102,7 @@ const expressMeals: Meal[] = [
     cal: 350,
     macros: "P: 15g | C: 40g | F: 15g",
     price: 11.00,
-    img: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&q=80&w=800",
+    img: "https://imagenes.elpais.com/resizer/v2/ZC4BTYYE5JHLXMDN4Q7OPHD4KQ.jpg?auth=b88fb18127d5d994595e4daa354db6c2703570051a4f25332f007541734396e8&width=1960&height=1470&smart=true",
     tag: "Vegetarian"
   },
   {
@@ -112,7 +112,7 @@ const expressMeals: Meal[] = [
     cal: 300,
     macros: "P: 25g | C: 15g | F: 10g",
     price: 16.50,
-    img: "https://images.unsplash.com/photo-1519708227418-c8fd9a3a2720?auto=format&fit=crop&q=80&w=800",
+    img: "https://jetextramar.com/wp-content/uploads/2021/06/receta-de-bacalao-al-horno.jpg",
     tag: "Lean Protein"
   },
   {
@@ -122,7 +122,7 @@ const expressMeals: Meal[] = [
     cal: 280,
     macros: "P: 18g | C: 12g | F: 18g",
     price: 9.90,
-    img: "https://images.unsplash.com/photo-1658428172937-23963c623912?auto=format&fit=crop&q=80&w=800",
+    img: "https://www.lanacion.com.ar/resizer/v2/esta-frittata-es-ideal-para-los-que-les-gustan-KJBWKV7CHJBV7DVAHPLIQGN6GE.jpg?auth=06e78cdd5091f83b244bf4daee559149e4fdf165eb78b0ce3e5fad24f609a85d&width=420&height=280&quality=70&smart=true",
     tag: "Breakfast"
   },
   {
@@ -147,25 +147,25 @@ const ingredientsList = {
     { name: "Atún", img: "https://rancaguatv.cl/images/2021/MAYO/ATUN-UCM.jpg" }
   ],
   vegetales: [
-    { name: "Espinaca", img: "https://images.pexels.com/photos/2325843/pexels-photo-2325843.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Brócoli", img: "https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Tomates", img: "https://images.pexels.com/photos/53328/pexels-photo-53328.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Lechuga", img: "https://images.pexels.com/photos/1199564/pexels-photo-1199564.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Aguacate", img: "https://images.pexels.com/photos/557659/pexels-photo-557659.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Espárragos", img: "https://images.pexels.com/photos/4791307/pexels-photo-4791307.jpeg?auto=compress&cs=tinysrgb&w=200" }
+    { name: "Espinaca", img: "https://i.blogs.es/10d3c5/espinacas-rec/450_1000.jpg" },
+    { name: "Brócoli", img: "https://image.tuasaude.com/media/article/ge/nz/brocoli_62068.jpg" },
+    { name: "Tomates", img: "https://static.abc.es/media/viajar/2017/08/01/tomates-kl8G--1240x698@abc.jpg" },
+    { name: "Lechuga", img: "https://s1.abcstatics.com/media/bienestar/2020/09/01/lechuga-kSlD--1248x698@abc.jpg" },
+    { name: "Palta", img: "https://elcomercio.pe/resizer/v2/R7WWAMA5FJD3LKQRE6M5TCJM64.jpg?auth=c73ae98e08e25d36f4a4b32862e72b92d0f64e0e6607234987f9d8bf40613de6&width=1200&height=800&quality=75&smart=true" },
+    { name: "Espárragos", img: "https://s3.ppllstatics.com/diariovasco/www/multimedia/202106/09/media/cortadas/esparragos-kuyG-U140644297105BKI-1248x770@Diario%20Vasco.jpg" }
   ],
   carbohidratos: [
-    { name: "Quinoa", img: "https://images.pexels.com/photos/3338573/pexels-photo-3338573.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Arroz Integral", img: "https://images.pexels.com/photos/4110464/pexels-photo-4110464.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Camote", img: "https://images.pexels.com/photos/5424535/pexels-photo-5424535.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Avena", img: "https://images.pexels.com/photos/6744837/pexels-photo-6744837.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Pasta Integral", img: "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=200" }
+    { name: "Quinua", img: "https://www.clebastien.com/wp-content/uploads/2025/03/quinua_cocida_bebe.png" },
+    { name: "Arroz Integral", img: "https://quierocuidarme.dkv.es/sites/default/files/styles/article_teaser_big_630x360/public/2025-02/arroz%20integral.jpg?itok=pKAt_QVl" },
+    { name: "Camote", img: "https://agraria.pe/imgs/a/lx/aconsejan-consumo-de-camote-para-prevenir-envejecimiento-pre-16178.jpg" },
+    { name: "Avena", img: "https://www.luzdeltajo.net/wp-content/uploads/sites/28/2018/03/propiedades-de-la-avena.jpg" },
+    { name: "Pasta Integral", img: "https://st1.uvnimg.com/16/d8/5de8fe3649158bc8761363290157/istock-607654038.jpg" }
   ],
   grasas: [
-    { name: "Aceite de Oliva", img: "https://images.pexels.com/photos/4192667/pexels-photo-4192667.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Nueces", img: "https://images.pexels.com/photos/1093153/pexels-photo-1093153.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Almendras", img: "https://images.pexels.com/photos/1109355/pexels-photo-1109355.jpeg?auto=compress&cs=tinysrgb&w=200" },
-    { name: "Semillas de Chía", img: "https://images.pexels.com/photos/13627254/pexels-photo-13627254.jpeg?auto=compress&cs=tinysrgb&w=200" }
+    { name: "Aceite de Oliva", img: "https://i.blogs.es/6df34a/olive-oil-968657_1280-2-/1366_2000.jpg" },
+    { name: "Nueces", img: "https://e01-elmundo.uecdn.es/assets/multimedia/imagenes/2022/01/04/16413064087771.jpg" },
+    { name: "Almendras", img: "https://cdn.shopify.com/s/files/1/2964/0212/files/beneficios-almendras_480x480.jpg?v=1711561022" },
+    { name: "Chía", img: "https://content.cuerpomente.com/medio/2019/07/03/semillas-de-chia-propiedades_76de1168_846x846.jpg" }
   ]
 };
 
@@ -190,7 +190,7 @@ const healthyRecipes: Recipe[] = [
     time: '20 Min',
     portions: 2,
     macros: 'P: 30g | C: 12g | F: 18g',
-    img: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://i.pinimg.com/736x/93/a7/5a/93a75a47bc352f3221f04cb9b4963b29.jpg',
     tag: 'Baja en Carbos',
     ingredients: ['1 pechuga de pollo', '1 taza de tomates cherry', '1 pepino', '50g de queso feta', 'Aceitunas negras', 'Aceite de oliva extra virgen'],
     instructions: ['Asa la pechuga de pollo a la parrilla hasta que esté dorada.', 'Corta los tomates cherry, el pepino y el pollo en cubos rápidos.', 'Mezcla todo en un bowl grande con las aceitunas y el queso feta desmenuzado.', 'Adereza con aceite de oliva, sal, pimienta y un toque de orégano.']
@@ -202,7 +202,7 @@ const healthyRecipes: Recipe[] = [
     time: '35 Min',
     portions: 1,
     macros: 'P: 35g | C: 45g | F: 22g',
-    img: 'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://drizzlingflavor.com/wp-content/uploads/2023/11/Salmon-quinoa-bowl.jpg',
     tag: 'Omega-3',
     ingredients: ['150g de filete de salmón', '1/2 taza de quinoa cocida', '1/2 palta (aguacate)', '1/4 taza de edamames', 'Salsa de soja baja en sodio', 'Semillas de sésamo'],
     instructions: ['Hornea el salmón condimentado a 200°C por 15-20 minutos.', 'Lava y cocina la quinoa a fuego lento hasta que el agua se evapore.', 'En un bowl, coloca como base la quinoa, añade el salmón, la palta en rodajas y los edamames.', 'Decora con semillas de sésamo y baña ligeramente con salsa de soja.']
@@ -214,7 +214,7 @@ const healthyRecipes: Recipe[] = [
     time: '5 Min',
     portions: 1,
     macros: 'P: 12g | C: 40g | F: 8g',
-    img: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://thefitbowl.es/wp-content/uploads/Bowl-de-avena-y-frutos-rojos-1-1200x1200.jpg',
     tag: 'Desayuno',
     ingredients: ['1/2 taza de avena en hojuelas', '1 taza de leche de almendras', '1 cda de semillas de chía', '1/2 taza de frutos rojos (fresas, arándanos)', '1 cdita de miel (opcional)'],
     instructions: ['En un frasco o recipiente con tapa, mezcla la avena, la chía y la leche de almendras.', 'Añade la miel si deseas endulzar un poco, mezcla bien y tapa el frasco.', 'Refrigera toda la noche (mínimo 4 horas).', 'A la mañana siguiente, destapa y agrega los frutos rojos frescos por encima.']
@@ -226,7 +226,7 @@ const healthyRecipes: Recipe[] = [
     time: '5 Min',
     portions: 1,
     macros: 'P: 28g | C: 35g | F: 10g',
-    img: 'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://www.sportlife.es/uploads/s1/13/96/44/78/batido-para-deportistas-de-yogur-platano-cacao-y-miel.jpeg',
     tag: 'Post-Entreno',
     ingredients: ['1 scoop de proteína de vainilla', '1 plátano maduro congelado', '1 puñado grande de espinacas', '1 cda de mantequilla de maní sin azúcar', '1 taza de leche de almendras o agua', 'Hielo al gusto'],
     instructions: ['Coloca todos los ingredientes en una licuadora de alta potencia.', 'Licúa a velocidad máxima hasta obtener una mezcla suave y homogénea.', 'Sirve inmediatamente para aprovechar al máximo las vitaminas y su textura cremosa.']
@@ -238,9 +238,9 @@ const healthyRecipes: Recipe[] = [
     time: '25 Min',
     portions: 3,
     macros: 'P: 25g | C: 8g | F: 12g',
-    img: 'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://storage.googleapis.com/fitia_recipe_images/GR-R-V-00002619%2Fv2%2Frect.jpeg',
     tag: 'Hiperproteico',
-    ingredients: ['400g de carne molida de pavo', '1 hoja grande de lechuga romana o iceberg por taco', '1 cda de aceite de sésamo', '2 dientes de ajo picados', '1 cdita de jengibre rallado', 'Salsa de soja baja en sodio y cebollín chino al gusto'],
+    ingredients: ['400g de carne molida de pavo', '1 hoja grande de lechuga romana o iceberg por taco', '1 cda de aceite de sésamo', '2 dientes de ajo picados', '1 cdita de jengibre rallado', 'Salsa de soja baja en sodio y cebollín chino al gusto', '1 Palta'],
     instructions: ['Dora el ajo y el jengibre rallado en una sartén con aceite de sésamo.', 'Añade la carne molida de pavo y cocina hasta dorar por completo.', 'Vierte un poco de salsa de soja, mezcla bien y retira del fuego.', 'Toma las hojas de lechuga limpias y úsalas como tortillas (tacos), rellenando con el pavo y agregando cebollín arriba.']
   },
   {
@@ -250,7 +250,7 @@ const healthyRecipes: Recipe[] = [
     time: '15 Min',
     portions: 2,
     macros: 'P: 15g | C: 45g | F: 12g',
-    img: 'https://images.pexels.com/photos/2091494/pexels-photo-2091494.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://www.recetassinlactosa.com/wp-content/uploads/2017/07/Tortitas-avena-y-platano.jpg',
     tag: 'Cheat Meal Fit',
     ingredients: ['1 taza de avena licuada (harina de avena)', '1 plátano maduro', '2 huevos grandes', '1 cdita de polvo para hornear (opcional)', 'Canela al gusto', 'Aceite de coco en spray (para la sartén)'],
     instructions: ['Licúa los huevos, el plátano pelado, la harina de avena, la canela y el polvo de hornear hasta hacer una masa líquida espesa.', 'Calienta un sartén antiadherente a fuego medio y rocía aceite de coco.', 'Vierte un poco de la mezcla y cocina hasta que salgan burbujas en la parte superior; voltéalo y cocina 1 minuto más.', 'Sirve calientes. Puedes acompañar con miel sin azúcar y arándanos.']
@@ -263,7 +263,19 @@ const Nutrition: React.FC = () => {
   const [generatedMeal, setGeneratedMeal] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const [sortBy, setSortBy] = useState<string>('');
   const { addToCart: addItemToCart, cartTotal, itemCount } = useCart();
+
+  const sortedExpressMeals = React.useMemo(() => {
+    let meals = [...expressMeals];
+    if (sortBy === 'lowest') meals.sort((a, b) => a.price - b.price);
+    else if (sortBy === 'highest') meals.sort((a, b) => b.price - a.price);
+    else if (sortBy === 'popular') {
+      const salesMap: Record<string, number> = { 'e8': 2200, 'e4': 2000, 'e3': 1800, 'e1': 1500, 'e12': 1300, 'e2': 1200, 'e7': 1100, 'e9': 950, 'e5': 900, 'e6': 850, 'e10': 700, 'e11': 600 };
+      meals.sort((a, b) => (salesMap[b.id] || 0) - (salesMap[a.id] || 0));
+    }
+    return meals;
+  }, [sortBy]);
 
   const toggleIngredient = (ing: string) => {
     setSelectedIngredients(prev =>
@@ -344,40 +356,63 @@ const Nutrition: React.FC = () => {
 
               {activeTab === 'express' && (
                 /* Express View: Ready-made Meals */
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {expressMeals.map(meal => (
-                    <div key={meal.id} className="group relative flex flex-col bg-white dark:bg-surface-dark rounded-2xl shadow-card border border-border-light dark:border-white/5 overflow-hidden hover:border-primary/50 transition-all">
-                      <div className="aspect-video w-full overflow-hidden relative">
-                        <div
-                          className="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-105"
-                          style={{ backgroundImage: `url("${meal.img}")` }}
-                        ></div>
-                        <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-text-main dark:text-white uppercase tracking-widest shadow-sm">
-                          {meal.tag}
-                        </div>
-                      </div>
-                      <div className="p-6 flex flex-col gap-4">
-                        <div>
-                          <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{meal.name}</h4>
-                          <p className="text-sm text-slate-500 dark:text-white/60 mt-1">{meal.desc}</p>
-                        </div>
-                        <div className="flex items-center gap-4 text-xs font-mono">
-                          <span className="bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-white/70 px-2 py-1 rounded">{meal.cal} kcal</span>
-                          <span className="text-slate-400 dark:text-white/30">{meal.macros}</span>
-                        </div>
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
-                          <span className="text-lg font-black text-slate-900 dark:text-white">S/ {meal.price.toFixed(2)}</span>
-                          <button
-                            onClick={() => addItemToCart({ id: meal.id, title: meal.name, price: meal.price, image: meal.img })}
-                            className="bg-primary hover:bg-primary-hover text-slate-900 text-sm font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
-                          >
-                            Pedir ahora
-                            <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
-                          </button>
-                        </div>
-                      </div>
+                <div className="flex flex-col gap-6">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 bg-white dark:bg-surface-dark border border-slate-200 dark:border-white/5 rounded-2xl p-4 shadow-sm">
+                    <h3 className="text-slate-900 dark:text-white font-bold flex items-center gap-2">
+                      <span className="material-symbols-outlined text-primary">bolt</span>
+                      Menú Express
+                    </h3>
+                    <div className="relative">
+                      <select
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
+                        className="w-full sm:w-auto bg-slate-50 dark:bg-black/20 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-white text-sm font-bold rounded-xl pl-4 pr-10 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent cursor-pointer appearance-none transition-all"
+                      >
+                        <option value="" className="dark:bg-surface-dark">Recomendados</option>
+                        <option value="lowest" className="dark:bg-surface-dark">Menor Precio</option>
+                        <option value="highest" className="dark:bg-surface-dark">Mayor Precio</option>
+                        <option value="popular" className="dark:bg-surface-dark">Más Comprados</option>
+                      </select>
+                      <span className="material-symbols-outlined text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[18px]">
+                        expand_more
+                      </span>
                     </div>
-                  ))}
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {sortedExpressMeals.map(meal => (
+                      <div key={meal.id} className="group relative flex flex-col bg-white dark:bg-surface-dark rounded-2xl shadow-card border border-border-light dark:border-white/5 overflow-hidden hover:border-primary/50 transition-all">
+                        <div className="aspect-video w-full overflow-hidden relative">
+                          <div
+                            className="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-105"
+                            style={{ backgroundImage: `url("${meal.img}")` }}
+                          ></div>
+                          <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-text-main dark:text-white uppercase tracking-widest shadow-sm">
+                            {meal.tag}
+                          </div>
+                        </div>
+                        <div className="p-6 flex flex-col gap-4">
+                          <div>
+                            <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{meal.name}</h4>
+                            <p className="text-sm text-slate-500 dark:text-white/60 mt-1">{meal.desc}</p>
+                          </div>
+                          <div className="flex items-center gap-4 text-xs font-mono">
+                            <span className="bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-white/70 px-2 py-1 rounded">{meal.cal} kcal</span>
+                            <span className="text-slate-400 dark:text-white/30">{meal.macros}</span>
+                          </div>
+                          <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
+                            <span className="text-lg font-black text-slate-900 dark:text-white">S/ {meal.price.toFixed(2)}</span>
+                            <button
+                              onClick={() => addItemToCart({ id: meal.id, title: meal.name, price: meal.price, image: meal.img })}
+                              className="bg-primary hover:bg-primary-hover text-slate-900 text-sm font-bold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                            >
+                              Pedir ahora
+                              <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
 
