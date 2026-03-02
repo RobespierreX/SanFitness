@@ -17,6 +17,7 @@ import TrackOrder from './TrackOrder';
 import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
 import LandingPage from './LandingPage';
+import VoiceflowWidget from './components/VoiceflowWidget';
 
 const App: React.FC = () => {
   const hasCompletedOnboarding = localStorage.getItem('onboarding_complete') === 'true';
@@ -53,6 +54,7 @@ const App: React.FC = () => {
                   </main>
                 </div>
                 <MobileNav />
+                <VoiceflowWidget />
               </AuthGuard>
             } />
           </Routes>
